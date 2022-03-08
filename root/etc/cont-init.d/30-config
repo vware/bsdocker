@@ -1,0 +1,15 @@
+#!/usr/bin/with-contenv bash
+
+# make our folders
+mkdir -p /data
+
+# check if config file exists in /config
+[[ ! -f /data/bricksync.conf.txt ]] && \
+    cp /app/bricksync/bricksync.conf.txt /data/bricksync.conf.txt
+
+# permissions
+chown abc:abc -R \
+    /app/bricksync \
+    /data
+chmod u+rw \
+    /data/bricksync.conf.txt
